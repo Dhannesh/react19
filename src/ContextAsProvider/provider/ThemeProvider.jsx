@@ -9,10 +9,6 @@ const ThemeProvider = ({ children }) => {
     document.body.classList.toggle("dark");
     console.log("Theme changed:", theme);
   };
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext value={{ theme, toggleTheme }}>{children}</ThemeContext>;
 };
 export default ThemeProvider;
