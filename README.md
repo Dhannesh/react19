@@ -25,3 +25,6 @@ Returns:
 - state: the latest value returned by the action
 - formAction: the function you pass to <form action={...}>
 - isPending: true while the action is running
+
+## Context As Provider
+![alt text](image.png)

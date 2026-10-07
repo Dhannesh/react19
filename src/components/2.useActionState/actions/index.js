@@ -6,9 +6,15 @@ export const addUserToRole = async (prevState, formData) => {
   const role = formData.get("role");
   if (isUserFoundInRole(userName, role)) {
     await new Promise((res) => setTimeout(res, 2000));
-    return `The user ${userName} exists for the role ${role} already. can't add it again.`;
+    return {
+      success: false,
+      message: `The user ${userName} exists for the role ${role} already. can't add it again.`,
+    };
   } else {
     addUser(userName, role);
-    return `Added the user ${userName} to the role ${role} successfully`;
+    return {
+      success: true,
+      message: `Added the user ${userName} to the role ${role} successfully`,
+    };
   }
 };

@@ -25,5 +25,5 @@ export const isUserFoundInRole = (userName, role) => {
   const foundUser = users.find(
     (user) => user?.userName?.toLowerCase() === userName.toLowerCase(),
   );
-  return foundUser ?? users.foundUser?.role === role;
+  return foundUser?.role === role;
 };

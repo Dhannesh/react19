@@ -2,10 +2,16 @@ import { useActionState } from "react";
 import { addUserToRole } from "../actions";
 
 const AddToRole = () => {
-  const [message, formAction, isPending] = useActionState(addUserToRole, null);
+  const [formState, formAction, isPending] = useActionState(
+    addUserToRole,
+    null,
+  );
   return (
     <div className="flex flex-col justify-center items-center p-2">
-      <form action={formAction}>
+      <form
+        action={formAction}
+        className="flex flex-col justify-center items-center p-2"
+      >
         <h2 className="text-2xl my-2">Add User to the role</h2>
         <input
           type="text"
@@ -25,10 +31,18 @@ const AddToRole = () => {
           Add +
         </button>
       </form>
-      {(isPending || message) && (
-        <p className="my-3 w-64 p-2 bg-gray-300 rounded-sm">
-          {isPending ? "Loading..." : message}
+      {isPending ? (
+        <p className="bg-gray-300 my-3 w-64 p-2 rounded-sm">Loading...</p>
+      ) : formState?.success ? (
+        <p className="bg-green-700 text-white my-3 w-64 p-2 rounded-sm">
+          {formState?.message}
         </p>
+      ) : (
+        formState?.success === false && (
+          <p className="bg-red-700 text-white my-3 w-64 p-2 rounded-sm">
+            {formState?.message}
+          </p>
+        )
       )}
     </div>
   );
