@@ -6,6 +6,8 @@ import Content from "./ContextAsProvider/component/content";
 import Header from "./ContextAsProvider/component/header";
 import ThemeProvider from "./ContextAsProvider/provider/ThemeProvider";
 import { foodProducts } from "./data";
+import LoginForm from "./forms/LoginForm";
+import NewForm from "./forms/NewForm";
 const App = () => {
   return (
     // <div className="flex flex-col justify-center items-center">
@@ -14,10 +16,12 @@ const App = () => {
     /* <DataUsage /> */
     // <AddToRole />
     // </div>
-    <ThemeProvider>
-      <Header />
-      <Content />
-    </ThemeProvider>
+    // <ThemeProvider>
+    //   <Header />
+    //   <Content />
+    //   <NewForm />
+    // </ThemeProvider>
+    <LoginForm />
   );
 };
 export default App;
